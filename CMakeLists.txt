@@ -21,6 +21,12 @@ project(
     LANGUAGES CXX
 )
 
+# load additional CMake modules
+list(
+    APPEND CMAKE_MODULE_PATH
+    "${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules/apcountryman-cmake-utilities"
+)
+
 # configure compilation and linking
 if( "${PROJECT_SOURCE_DIR}" STREQUAL "${CMAKE_SOURCE_DIR}" )
     set( CMAKE_CXX_STANDARD 17 )
@@ -49,3 +55,27 @@ if( "${PROJECT_SOURCE_DIR}" STREQUAL "${CMAKE_SOURCE_DIR}" )
         -ffile-prefix-map=${CMAKE_CURRENT_SOURCE_DIR}/picolibrary/=
     )
 endif( "${PROJECT_SOURCE_DIR}" STREQUAL "${CMAKE_SOURCE_DIR}" )
+
+# configure picolibrary
+option(
+    PICOLIBRARY_ARM_CORTEX_M0PLUS_USE_PARENT_PROJECT_PICOLIBRARY
+    "picolibrary-arm-cortex-m0plus: use parent project's picolibrary"
+    ON
+)
+if( NOT ${PICOLIBRARY_ARM_CORTEX_M0PLUS_USE_PARENT_PROJECT_PICOLIBRARY} )
+    set( PICOLIBRARY_HIL_INCLUDE_DIR "${PROJECT_SOURCE_DIR}/include" CACHE INTERNAL "" )
+
+    set( PICOLIBRARY_ENABLE_AUTOMATED_TESTING OFF CACHE INTERNAL "" )
+
+    add_subdirectory( picolibrary )
+endif( NOT ${PICOLIBRARY_ARM_CORTEX_M0PLUS_USE_PARENT_PROJECT_PICOLIBRARY} )
+
+# capture project version information
+include( git-utilities )
+execute_git_command(
+    PICOLIBRARY_ARM_CORTEX_M0PLUS_VERSION
+    COMMAND describe --match=none --always --dirty --broken
+)
+
+# library
+add_subdirectory( source )
