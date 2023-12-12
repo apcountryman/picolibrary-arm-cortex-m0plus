@@ -15,7 +15,7 @@
 # KIND, either express or implied. See the License for the specific language governing
 # permissions and limitations under the License.
 
-# Description: picolibrary-arm-cortex-m0plus repository CI static analysis script.
+# Description: picolibrary-arm-cortex-m0plus repository CI build script.
 
 function error()
 {
@@ -38,16 +38,16 @@ function abort()
 function display_help_text()
 {
     echo "NAME"
-    echo "    $mnemonic - Run a static analyzer against picolibrary-arm-cortex-m0plus."
+    echo "    $mnemonic - Build picolibrary-arm-cortex-m0plus."
     echo "SYNOPSIS"
     echo "    $mnemonic --help"
     echo "    $mnemonic --version"
-    echo "    $mnemonic --analyzer <analyzer>"
+    echo "    $mnemonic --configuration <configuration>"
     echo "OPTIONS"
-    echo "    --analyzer <analyzer>"
-    echo "        Specify the analyzer to run against picolibrary-arm-cortex-m0plus. The"
-    echo "        following analyzers are supported:"
-    echo "            shellcheck"
+    echo "    --configuration <configuration"
+    echo "        Specify the configuration to build. The following configurations are"
+    echo "        supported:"
+    echo "            release"
     echo "    --help"
     echo "        Display this help text."
     echo "    --version"
@@ -55,7 +55,7 @@ function display_help_text()
     echo "EXAMPLES"
     echo "    $mnemonic --help"
     echo "    $mnemonic --version"
-    echo "    $mnemonic --analyzer shellcheck"
+    echo "    $mnemonic --configuration release"
 }
 
 function display_version()
@@ -63,18 +63,19 @@ function display_version()
     echo "$mnemonic, version $version"
 }
 
-function run_shellcheck()
+function ensure_no_build_errors_are_present()
 {
-    local scripts; mapfile -t scripts < <( git -C "$repository" ls-files ':!:toolchain-arm-none-eabi-gcc/' | xargs -r -d '\n' -I '{}' find "$repository/{}" -executable ); readonly scripts
+    local -r toolchain_file="$repository/toolchain-arm-none-eabi-gcc/toolchain.cmake"
+    local -r build_directory="$repository/build/$configuration"
+    local -r build_configuration="$repository/configuration/$configuration/CMakeLists.txt"
 
-    if ! shellcheck "${scripts[@]}"; then
+    if ! cmake -DCMAKE_TOOLCHAIN_FILE="$toolchain_file" -C "$build_configuration" -S "$repository" -B "$build_directory"; then
         abort
     fi
-}
 
-function ensure_no_static_analysis_errors_are_present()
-{
-    "run_$analyzer"
+    if ! cmake --build "$build_directory" -j "$( nproc )"; then
+        abort
+    fi
 }
 
 function main()
@@ -88,19 +89,19 @@ function main()
         local argument="$1"; shift
 
         case "$argument" in
-            --analyzer)
-                if [[ -n "$analyzer" ]]; then
-                    abort "analyzer already specified"
+            --configuration)
+                if [[ -n "$configuration" ]]; then
+                    abort "build configuration already specified"
                 fi
 
                 if [[ "$#" -le 0 ]]; then
-                    abort "analyzer not specified"
+                    abort "build configuration not specified"
                 fi
 
-                local -r analyzer="$1"; shift
+                local -r configuration="$1"; shift
 
-                if [[ "$analyzer" != "shellcheck" ]]; then
-                    abort "'$analyzer' is not a supported analyzer"
+                if [[ "$configuration" != "release" ]]; then
+                    abort "'$configuration' is not a supported build configuration"
                 fi
                 ;;
             --help)
@@ -122,11 +123,11 @@ function main()
         esac
     done
 
-    if [[ -z "$analyzer" ]]; then
-        abort "'--analyzer' must be specified"
+    if [[ -z "$configuration" ]]; then
+        abort "'--configuration' must be specified"
     fi
 
-    ensure_no_static_analysis_errors_are_present
+    ensure_no_build_errors_are_present
 }
 
 main "$@"
