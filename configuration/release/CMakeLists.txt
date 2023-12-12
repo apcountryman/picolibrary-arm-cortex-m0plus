@@ -13,9 +13,8 @@
 # KIND, either express or implied. See the License for the specific language governing
 # permissions and limitations under the License.
 
-# Description: Git submodules of the picolibrary-arm-cortex-m0plus repository.
+# Description: picolibrary-arm-cortex-m0plus release configuration.
 
-# arm-none-eabi-gcc CMake toolchain
-[submodule "toolchain-arm-none-eabi-gcc"]
-	path = toolchain-arm-none-eabi-gcc
-	url = ../toolchain-arm-none-eabi-gcc/
+# build configuration
+set( CMAKE_BUILD_TYPE              "MinSizeRel" CACHE INTERNAL "" )
+set( CMAKE_EXPORT_COMPILE_COMMANDS ON           CACHE INTERNAL "" )
