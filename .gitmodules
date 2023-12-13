@@ -19,3 +19,13 @@
 [submodule "toolchain-arm-none-eabi-gcc"]
 	path = toolchain-arm-none-eabi-gcc
 	url = ../toolchain-arm-none-eabi-gcc/
+
+# CMake modules
+[submodule "cmake/modules/apcountryman-cmake-utilities"]
+	path = cmake/modules/apcountryman-cmake-utilities
+	url = ../cmake-utilities
+
+# picolibrary
+[submodule "picolibrary"]
+	path = picolibrary
+	url = ../picolibrary
