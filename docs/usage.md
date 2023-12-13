@@ -3,6 +3,7 @@
 ## Table of Contents
 1. [Dependency](#dependency)
     1. [Configuration Options](#configuration-options)
+    1. [picolibrary Configuration Requirements](#picolibrary-configuration-requirements)
 1. [Development](#development)
 
 ## Dependency
@@ -35,6 +36,13 @@ target_link_libraries(
 picolibrary-arm-cortex-m0plus supports the following project configuration options:
 - `PICOLIBRARY_ARM_CORTEX_M0PLUS_USE_PARENT_PROJECT_PICOLIBRARY` (defaults to `ON`): use
   parent project's picolibrary
+
+### picolibrary Configuration Requirements
+If `PICOLIBRARY_ARM_CORTEX_M0PLUS_USE_PARENT_PROJECT_PICOLIBRARY` is `ON`, picolibrary
+must be configured as follows:
+- `PICOLIBRARY_HIL_INCLUDE_DIR` must be set to the path to picolibrary-arm-cortex-m0plus's
+  `include/` directory
+- `PICOLIBRARY_ENABLE_AUTOMATED_TESTING` must be `OFF`
 
 ## Development
 The repository's Git `pre-commit` hook script is the simplest way to configure, and build
