@@ -47,6 +47,7 @@ function display_help_text()
     echo "    --analyzer <analyzer>"
     echo "        Specify the analyzer to run against picolibrary-arm-cortex-m0plus. The"
     echo "        following analyzers are supported:"
+    echo "            lizard"
     echo "            shellcheck"
     echo "    --help"
     echo "        Display this help text."
@@ -55,6 +56,7 @@ function display_help_text()
     echo "EXAMPLES"
     echo "    $mnemonic --help"
     echo "    $mnemonic --version"
+    echo "    $mnemonic --analyzer lizard"
     echo "    $mnemonic --analyzer shellcheck"
 }
 
@@ -63,9 +65,28 @@ function display_version()
     echo "$mnemonic, version $version"
 }
 
+function run_lizard()
+{
+    local source_files; mapfile -t source_files < <( git -C "$repository" ls-files '*.h' '*.cc' '*.cc.in' | xargs -r -d '\n' -I '{}' echo "$repository/{}" ); readonly source_files
+
+    local -r lizard_options=(
+        "--languages" "cpp"
+
+        "--modified"
+
+        "--arguments" "5"
+        "--length"    "25"
+        "--CCN"       "10"
+    )
+
+    if ! "$repository/lizard/lizard.py" "${lizard_options[@]}" "${source_files[@]}"; then
+        abort
+    fi
+}
+
 function run_shellcheck()
 {
-    local scripts; mapfile -t scripts < <( git -C "$repository" ls-files ':!:cmake/modules/' ':!:picolibrary/' ':!:toolchain-arm-none-eabi-gcc/' | xargs -r -d '\n' -I '{}' find "$repository/{}" -executable ); readonly scripts
+    local scripts; mapfile -t scripts < <( git -C "$repository" ls-files ':!:cmake/modules/' ':!:lizard/' ':!:picolibrary/' ':!:toolchain-arm-none-eabi-gcc/' | xargs -r -d '\n' -I '{}' find "$repository/{}" -executable ); readonly scripts
 
     if ! shellcheck "${scripts[@]}"; then
         abort
@@ -99,7 +120,7 @@ function main()
 
                 local -r analyzer="$1"; shift
 
-                if [[ "$analyzer" != "shellcheck" ]]; then
+                if [[ "$analyzer" != "shellcheck" && "$analyzer" != "lizard" ]]; then
                     abort "'$analyzer' is not a supported analyzer"
                 fi
                 ;;

@@ -27,6 +27,17 @@ on:
             - main
 
 jobs:
+    analyze-static-lizard:
+        name: Analyze (static) - lizard
+        runs-on: ubuntu-20.04
+        steps:
+            - uses: actions/checkout@v3
+              with:
+                  submodules: recursive
+            - name: Analyze
+              shell: bash
+              run: ./ci/analyze --analyzer lizard
+
     analyze-static-shellcheck:
         name: Analyze (static) - shellcheck
         runs-on: ubuntu-20.04
