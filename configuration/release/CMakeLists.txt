@@ -16,8 +16,9 @@
 # Description: picolibrary-arm-cortex-m0plus release configuration.
 
 # build configuration
-set( CMAKE_BUILD_TYPE              "MinSizeRel" CACHE INTERNAL "" )
-set( CMAKE_EXPORT_COMPILE_COMMANDS ON           CACHE INTERNAL "" )
+set( CMAKE_BUILD_TYPE                                         "MinSizeRel"                        CACHE INTERNAL "" )
+set( CMAKE_EXPORT_COMPILE_COMMANDS                            ON                                  CACHE INTERNAL "" )
+set( PICOLIBRARY_ARM_CORTEX_M0PLUS_IMPLEMENTATION_INCLUDE_DIR "${CMAKE_CURRENT_LIST_DIR}/include" CACHE INTERNAL "" )
 
 # picolibrary configuration
 set( PICOLIBRARY_ARM_CORTEX_M0PLUS_USE_PARENT_PROJECT_PICOLIBRARY OFF CACHE INTERNAL "" )
