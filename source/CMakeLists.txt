@@ -24,6 +24,7 @@ configure_file(
 set(
     PICOLIBRARY_ARM_CORTEX_M0PLUS_SOURCE_FILES
     "picolibrary/arm/cortex/m0plus.cc"
+    "picolibrary/arm/cortex/m0plus/configuration.cc"
 )
 set(
     PICOLIBRARY_ARM_CORTEX_M0PLUS_LINK_LIBRARIES
@@ -36,6 +37,7 @@ add_library(
 )
 target_include_directories(
     picolibrary-arm-cortex-m0plus
+    PUBLIC "${PICOLIBRARY_ARM_CORTEX_M0PLUS_IMPLEMENTATION_INCLUDE_DIR}"
     PUBLIC "${PROJECT_SOURCE_DIR}/include"
 )
 target_link_libraries(

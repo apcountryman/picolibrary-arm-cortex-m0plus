@@ -6,3 +6,4 @@
 1. [Definitions](definitions.md)
 1. [Usage](usage.md)
 1. [Library Version](library_version.md)
+1. [Library Configuration](library_configuration.md)

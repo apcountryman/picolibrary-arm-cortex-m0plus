@@ -36,6 +36,8 @@ target_link_libraries(
 picolibrary-arm-cortex-m0plus supports the following project configuration options:
 - `PICOLIBRARY_ARM_CORTEX_M0PLUS_USE_PARENT_PROJECT_PICOLIBRARY` (defaults to `ON`): use
   parent project's picolibrary
+- `PICOLIBRARY_ARM_CORTEX_M0PLUS_IMPLEMENTATION_INCLUDE_DIR`: implementation include
+  directory
 
 ### picolibrary Configuration Requirements
 If `PICOLIBRARY_ARM_CORTEX_M0PLUS_USE_PARENT_PROJECT_PICOLIBRARY` is `ON`, picolibrary

@@ -21,6 +21,17 @@ project(
     LANGUAGES CXX
 )
 
+# general project configuration
+set(
+    PICOLIBRARY_ARM_CORTEX_M0PLUS_IMPLEMENTATION_INCLUDE_DIR
+    "" CACHE STRING
+    "picolibrary-arm-cortex-m0plus: implementation include directory"
+)
+
+if( "${PICOLIBRARY_ARM_CORTEX_M0PLUS_IMPLEMENTATION_INCLUDE_DIR}" STREQUAL "" )
+    message( FATAL_ERROR "PICOLIBRARY_ARM_CORTEX_M0PLUS_IMPLEMENTATION_INCLUDE_DIR must be configured" )
+endif( "${PICOLIBRARY_ARM_CORTEX_M0PLUS_IMPLEMENTATION_INCLUDE_DIR}" STREQUAL "" )
+
 # load additional CMake modules
 list(
     APPEND CMAKE_MODULE_PATH
