@@ -30,7 +30,7 @@
 namespace picolibrary::Arm::Cortex::M0PLUS::Peripheral {
 
 /**
- * \brief Arm Cortex-M0+ Nested Vector Interrupt Controller (NVIC) peripheral.
+ * \brief Arm Cortex-M0+ Nested Vectored Interrupt Controller (NVIC) peripheral.
  */
 class NVIC {
   public:
