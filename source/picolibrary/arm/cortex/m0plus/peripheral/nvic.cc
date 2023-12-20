@@ -17,25 +17,13 @@
 
 /**
  * \file
- * \brief picolibrary::Arm::Cortex::M0PLUS::Peripheral interface.
+ * \brief picolibrary::Arm::Cortex::M0PLUS::Peripheral::NVIC implementation.
  */
-
-#ifndef PICOLIBRARY_ARM_CORTEX_M0PLUS_PERIPHERAL_H
-#define PICOLIBRARY_ARM_CORTEX_M0PLUS_PERIPHERAL_H
 
 #include "picolibrary/arm/cortex/m0plus/peripheral/nvic.h"
-#include "picolibrary/peripheral.h"
 
-/**
- * \brief Arm Cortex-M0+ peripheral facilities.
- */
 namespace picolibrary::Arm::Cortex::M0PLUS::Peripheral {
 
-/**
- * \brief NVIC0.
- */
-using NVIC0 = ::picolibrary::Peripheral::Instance<NVIC, 0xE000E100>;
+static_assert( sizeof( NVIC ) == 0x3EF + 1 );
 
 } // namespace picolibrary::Arm::Cortex::M0PLUS::Peripheral
-
-#endif // PICOLIBRARY_ARM_CORTEX_M0PLUS_PERIPHERAL_H
