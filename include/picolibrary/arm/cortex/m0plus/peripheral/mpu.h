@@ -39,9 +39,9 @@ class MPU {
      * \brief Type Register (TYPE) register.
      *
      * This register has the following fields:
-     * - SEPARATE (SEPARATE)
-     * - DREGION (DREGION)
-     * - IREGION (IREGION)
+     * - Separate Instruction and Data Memory Maps Supported (SEPARATE)
+     * - MPU Data Regions (DREGION)
+     * - MPU Instruction Regions (IREGION)
      */
     class TYPE : public Register<std::uint32_t> {
       public:
@@ -97,9 +97,9 @@ class MPU {
      * \brief Control Register (CTRL) register.
      *
      * This register has the following fields:
-     * - ENABLE (ENABLE)
-     * - HFNMIENA (HFNMIENA)
-     * - PRIVDEFENA (PRIVDEFENA)
+     * - Enable MPU (ENABLE)
+     * - Enable MPU during Hard Fault and NMI Handling (HFNMIENA)
+     * - Enable Privileged Software Default Memory Map Access (PRIVDEFENA)
      */
     class CTRL : public Register<std::uint32_t> {
       public:
@@ -152,7 +152,7 @@ class MPU {
      * \brief Region Number Register (RNR) register.
      *
      * This register has the following fields:
-     * - REGION (REGION)
+     * - RBAR/RASR MPU Region (REGION)
      */
     class RNR : public Register<std::uint32_t> {
       public:
@@ -199,9 +199,9 @@ class MPU {
      * \brief Region Base Address Register (RBAR) register.
      *
      * This register has the following fields:
-     * - REGION (REGION)
-     * - VALID (VALID)
-     * - ADDR (ADDR)
+     * - MPU Region (REGION)
+     * - MPU Region Number Valid (VALID)
+     * - MPU Region Base Address (ADDR)
      */
     class RBAR : public Register<std::uint32_t> {
       public:
@@ -254,14 +254,14 @@ class MPU {
      * \brief Region Attribute and Size Register (RASR) register.
      *
      * This register has the following fields:
-     * - ENABLE (ENABLE)
-     * - SIZE (SIZE)
-     * - SRD (SRD)
-     * - B (B)
-     * - C (C)
-     * - S (S)
-     * - AP (AP)
-     * - XN (XN)
+     * - Enable MPU Region (ENABLE)
+     * - MPU Region Size (SIZE)
+     * - Disable Subregion (SRD)
+     * - Bufferable (B)
+     * - Cacheable (C)
+     * - Shareable (S)
+     * - Access Permission (AP)
+     * - Disable Instruction Fetching (XN)
      */
     class RASR : public Register<std::uint32_t> {
       public:
