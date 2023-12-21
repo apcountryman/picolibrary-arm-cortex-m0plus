@@ -41,4 +41,4 @@ differentiate the peripheral name and the instance name.
 The following peripheral instances are defined (listed alphabetically):
 - `::picolibrary::Arm::Cortex::M0PLUS::Peripheral::NVIC0`
 - `::picolibrary::Arm::Cortex::M0PLUS::Peripheral::SYSTICK0` (only available if
-  `PICOLIBRARY_ARM_CORTEX_M0PLUS_IMPLEMENTATION_HAS_SYSTICK` is true
+  `PICOLIBRARY_ARM_CORTEX_M0PLUS_IMPLEMENTATION_HAS_SYSTICK` is true)
