@@ -17,12 +17,13 @@
 
 /**
  * \file
- * \brief picolibrary::Arm::Cortex::M0PLUS configuration.
+ * \brief picolibrary::Arm::Cortex::M0PLUS::Peripheral::SYSTICK implementation.
  */
 
-#ifndef PICOLIBRARY_ARM_CORTEX_M0PLUS_IMPLEMENTATION_CONFIGURATION_H
-#define PICOLIBRARY_ARM_CORTEX_M0PLUS_IMPLEMENTATION_CONFIGURATION_H
+#include "picolibrary/arm/cortex/m0plus/peripheral/systick.h"
 
-#define PICOLIBRARY_ARM_CORTEX_M0PLUS_IMPLEMENTATION_HAS_SYSTICK 1
+namespace picolibrary::Arm::Cortex::M0PLUS::Peripheral {
 
-#endif // PICOLIBRARY_ARM_CORTEX_M0PLUS_IMPLEMENTATION_CONFIGURATION_H
+static_assert( sizeof( SYSTICK ) == 0xC + 4 );
+
+} // namespace picolibrary::Arm::Cortex::M0PLUS::Peripheral
