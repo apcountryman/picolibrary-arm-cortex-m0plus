@@ -205,10 +205,10 @@ class SYSTICK {
          * \brief Field sizes.
          */
         struct Size {
-            static constexpr auto TENMS      = std::uint_fast8_t{ 1 }; ///< TENMS.
-            static constexpr auto RESERVED24 = std::uint_fast8_t{ 1 }; ///< RESERVED24.
-            static constexpr auto SKEW       = std::uint_fast8_t{ 1 }; ///< SKEW.
-            static constexpr auto NOREF      = std::uint_fast8_t{ 1 }; ///< NOREF.
+            static constexpr auto TENMS      = std::uint_fast8_t{ 24 }; ///< TENMS.
+            static constexpr auto RESERVED24 = std::uint_fast8_t{ 6 };  ///< RESERVED24.
+            static constexpr auto SKEW       = std::uint_fast8_t{ 1 };  ///< SKEW.
+            static constexpr auto NOREF      = std::uint_fast8_t{ 1 };  ///< NOREF.
         };
 
         /**
