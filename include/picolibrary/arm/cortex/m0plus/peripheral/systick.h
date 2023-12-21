@@ -36,7 +36,7 @@ namespace picolibrary::Arm::Cortex::M0PLUS::Peripheral {
 class SYSTICK {
   public:
     /**
-     * \brief Control aand Status Register (CSR) register.
+     * \brief Control and Status Register (CSR) register.
      *
      * This register has the following fields:
      * - Enable Counter (ENABLE)
