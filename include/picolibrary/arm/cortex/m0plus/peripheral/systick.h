@@ -39,10 +39,10 @@ class SYSTICK {
      * \brief Control aand Status Register (CSR) register.
      *
      * This register has the following fields:
-     * - ENABLE (ENABLE)
-     * - TICKINT (TICKINT)
-     * - CLKSOURCE (CLKSOURCE)
-     * - COUNTFLAG (COUNTFLAG)
+     * - Enable Counter (ENABLE)
+     * - Enable SYSTICK Interrupt Request (TICKINT)
+     * - Timer Clock Source (CLKSOURCE)
+     * - Timer Counted to 0 (COUNTFLAG)
      */
     class CSR : public Register<std::uint32_t> {
       public:
@@ -101,7 +101,7 @@ class SYSTICK {
      * \brief Reload Value Register (RVR) register.
      *
      * This register has the following fields:
-     * - RELOAD (RELOAD)
+     * - Reload Value (RELOAD)
      */
     class RVR : public Register<std::uint32_t> {
       public:
@@ -148,7 +148,7 @@ class SYSTICK {
      * \brief Current Value Register (CVR) register.
      *
      * This register has the following fields:
-     * - CURRENT (CURRENT)
+     * - Current Value (CURRENT)
      */
     class CVR : public Register<std::uint32_t> {
       public:
@@ -195,9 +195,9 @@ class SYSTICK {
      * \brief Calibration Value Register (CALIB) register.
      *
      * This register has the following fields:
-     * - TENMS (TENMS)
-     * - SKEW (SKEW)
-     * - NOREF (NOREF)
+     * - Counter 10 ms Interval Reload Value (TENMS)
+     * - TENMS Rounded (SKEW)
+     * - No Separate Reference Clock Provided (NOREF)
      */
     class CALIB : public Register<std::uint32_t> {
       public:
