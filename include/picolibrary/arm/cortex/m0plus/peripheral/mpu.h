@@ -337,7 +337,7 @@ class MPU {
     /**
      * \brief TYPE.
      */
-    TYPE type;
+    TYPE const type;
 
     /**
      * \brief CTRL.
