@@ -26,6 +26,7 @@ set(
     "picolibrary/arm/cortex/m0plus.cc"
     "picolibrary/arm/cortex/m0plus/configuration.cc"
     "picolibrary/arm/cortex/m0plus/peripheral.cc"
+    "picolibrary/arm/cortex/m0plus/peripheral/mpu.cc"
     "picolibrary/arm/cortex/m0plus/peripheral/nvic.cc"
     "picolibrary/arm/cortex/m0plus/peripheral/systick.cc"
 )

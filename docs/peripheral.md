@@ -2,6 +2,7 @@
 
 ## Table of Contents
 1. [Peripherals](#peripherals)
+    1. [MPU](#mpu)
     1. [NVIC](#nvic)
     1. [SYSTICK](#systick)
 1. [Peripheral Instances](#peripheral-instances)
@@ -15,6 +16,13 @@ Peripheral register field constants are defined in the following member structur
 - `Size`: field sizes
 - `Bit`: field bit positions
 - `Mask`: field bit masks
+
+### MPU
+The `::picolibrary::Arm::Cortex::M0PLUS::Peripheral::MPU` class defines the layout of the
+Arm Cortex-M0+ MPU peripheral and information about its registers.
+The `::picolibrary::Arm::Cortex::M0PLUS::Peripheral::MPU` class is defined in the
+[`include/picolibrary/arm/cortex/m0plus/peripheral/mpu.h`](https://github.com/apcountryman/picolibrary-arm-cortex-m0plus/blob/main/include/picolibrary/arm/cortex/m0plus/peripheral/mpu.h)/[`source/picolibrary/arm/cortex/m0plus/peripheral/mpu.cc`](https://github.com/apcountryman/picolibrary-arm-cortex-m0plus/blob/main/source/picolibrary/arm/cortex/m0plus/peripheral/mpu.cc)
+header/source file pair.
 
 ### NVIC
 The `::picolibrary::Arm::Cortex::M0PLUS::Peripheral::NVIC` class defines the layout of the
@@ -39,6 +47,8 @@ chapter of the "Cortex-M0+ Devices Generic User Guide" with the following change
 added to the end of the name of peripherals that only have a single instance to
 differentiate the peripheral name and the instance name.
 The following peripheral instances are defined (listed alphabetically):
+- `::picolibrary::Arm::Cortex::M0PLUS::Peripheral::MPU0` (only available if
+  `PICOLIBRARY_ARM_CORTEX_M0PLUS_IMPLEMENTATION_HAS_MPU` is true)
 - `::picolibrary::Arm::Cortex::M0PLUS::Peripheral::NVIC0`
 - `::picolibrary::Arm::Cortex::M0PLUS::Peripheral::SYSTICK0` (only available if
   `PICOLIBRARY_ARM_CORTEX_M0PLUS_IMPLEMENTATION_HAS_SYSTICK` is true)
