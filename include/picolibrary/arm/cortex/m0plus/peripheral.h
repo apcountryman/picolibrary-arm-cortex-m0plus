@@ -23,13 +23,22 @@
 #ifndef PICOLIBRARY_ARM_CORTEX_M0PLUS_PERIPHERAL_H
 #define PICOLIBRARY_ARM_CORTEX_M0PLUS_PERIPHERAL_H
 
+#include "picolibrary/arm/cortex/m0plus/configuration.h"
 #include "picolibrary/arm/cortex/m0plus/peripheral/nvic.h"
+#include "picolibrary/arm/cortex/m0plus/peripheral/systick.h"
 #include "picolibrary/peripheral.h"
 
 /**
  * \brief Arm Cortex-M0+ peripheral facilities.
  */
 namespace picolibrary::Arm::Cortex::M0PLUS::Peripheral {
+
+#if PICOLIBRARY_ARM_CORTEX_M0PLUS_IMPLEMENTATION_HAS_SYSTICK
+/**
+ * \brief SYSTICK0.
+ */
+using SYSTICK0 = ::picolibrary::Peripheral::Instance<SYSTICK, 0xE000E010>;
+#endif // PICOLIBRARY_ARM_CORTEX_M0PLUS_IMPLEMENTATION_HAS_SYSTICK
 
 /**
  * \brief NVIC0.
