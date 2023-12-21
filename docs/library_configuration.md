@@ -14,6 +14,8 @@ option defines the search path for these header files.
 General library configuration is performed by an implementation's
 `picolibrary/arm/cortex/m0plus/implementation/configuration.h` header file.
 General library configuration consists of the following macros:
+- `PICOLIBRARY_ARM_CORTEX_M0PLUS_IMPLEMENTATION_HAS_MPU`: implementation MPU peripheral
+  configuration
 - `PICOLIBRARY_ARM_CORTEX_M0PLUS_IMPLEMENTATION_HAS_SYSTICK`: implementation SYSTICK
   peripheral configuration
 
@@ -26,6 +28,8 @@ for the Microchip SAM D21/DA1 family of Arm Cortex-M0+ microcontrollers:
 ```c++
 #ifndef PICOLIBRARY_ARM_CORTEX_M0PLUS_IMPLEMENTATION_CONFIGURATION_H
 #define PICOLIBRARY_ARM_CORTEX_M0PLUS_IMPLEMENTATION_CONFIGURATION_H
+
+#define PICOLIBRARY_ARM_CORTEX_M0PLUS_IMPLEMENTATION_HAS_MPU 0
 
 #define PICOLIBRARY_ARM_CORTEX_M0PLUS_IMPLEMENTATION_HAS_SYSTICK 1
 
