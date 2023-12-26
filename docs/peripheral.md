@@ -10,13 +10,24 @@
 
 ## Peripherals
 The layout of each Arm Cortex-M0+ peripheral's registers is defined by the class named
-after the peripheral.
-Peripheral registers are accessed via the member variables named after the registers.
-Peripheral register information is defined in member classes named after the registers.
+after the peripheral (e.g. the layout of the SYSTICK peripheral's registers is defined by
+the `::picolibrary::Arm::Cortex::M0PLUS::Peripheral::SYSTICK` class).
+Peripheral registers are accessed via the member variables named after the registers (e.g.
+the SYSTICK peripheral's CSR register is accessed via the
+`::picolibrary::Arm::Cortex::M0PLUS::Peripheral::SYSTICK::csr` member variable).
+Peripheral register information is defined in member classes named after the registers
+(e.g. SYSTICK peripheral CSR register information is defined in the
+`::picolibrary::Arm::Cortex::M0PLUS::Peripheral::SYSTICK::CSR` member class).
 Peripheral register field constants are defined in the following member structures:
-- `Size`: field sizes
-- `Bit`: field bit positions
-- `Mask`: field bit masks
+- `Size`: field sizes (e.g. the size of the ENABLE field of the SYSTICK peripheral's CSR
+  register is defined by the
+  `::picolibrary::Arm::Cortex::M0PLUS::Peripheral::SYSTICK::CSR::Size::ENABLE` constant)
+- `Bit`: field bit positions (e.g. the position of the ENABLE field of the SYSTICK
+  peripheral's CSR register is defined by the
+  `::picolibrary::Arm::Cortex::M0PLUS::Peripheral::SYSTICK::CSR::Bit::ENABLE` constant)
+- `Mask`: field bit masks (e.g. the mask for the ENABLE field of the SYSTICK peripheral's
+  CSR register is defined by the
+  `::picolibrary::Arm::Cortex::M0PLUS::Peripheral::SYSTICK::CSR::Mask::ENABLE` constant)
 
 ### MPU
 The `::picolibrary::Arm::Cortex::M0PLUS::Peripheral::MPU` class defines the layout of the
