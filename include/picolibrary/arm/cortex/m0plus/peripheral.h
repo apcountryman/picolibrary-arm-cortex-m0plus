@@ -26,6 +26,7 @@
 #include "picolibrary/arm/cortex/m0plus/configuration.h"
 #include "picolibrary/arm/cortex/m0plus/peripheral/mpu.h"
 #include "picolibrary/arm/cortex/m0plus/peripheral/nvic.h"
+#include "picolibrary/arm/cortex/m0plus/peripheral/scb.h"
 #include "picolibrary/arm/cortex/m0plus/peripheral/systick.h"
 #include "picolibrary/peripheral.h"
 
@@ -45,6 +46,11 @@ using SYSTICK0 = ::picolibrary::Peripheral::Instance<SYSTICK, 0xE000E010>;
  * \brief NVIC0.
  */
 using NVIC0 = ::picolibrary::Peripheral::Instance<NVIC, 0xE000E100>;
+
+/**
+ * \brief SCB0.
+ */
+using SCB0 = ::picolibrary::Peripheral::Instance<SCB, 0xE000ED00>;
 
 #if PICOLIBRARY_ARM_CORTEX_M0PLUS_IMPLEMENTATION_HAS_MPU
 /**

@@ -4,6 +4,7 @@
 1. [Peripherals](#peripherals)
     1. [MPU](#mpu)
     1. [NVIC](#nvic)
+    1. [SCB](#scb)
     1. [SYSTICK](#systick)
 1. [Peripheral Instances](#peripheral-instances)
 
@@ -31,6 +32,13 @@ The `::picolibrary::Arm::Cortex::M0PLUS::Peripheral::NVIC` class is defined in t
 [`include/picolibrary/arm/cortex/m0plus/peripheral/nvic.h`](https://github.com/apcountryman/picolibrary-arm-cortex-m0plus/blob/main/include/picolibrary/arm/cortex/m0plus/peripheral/nvic.h)/[`source/picolibrary/arm/cortex/m0plus/peripheral/nvic.cc`](https://github.com/apcountryman/picolibrary-arm-cortex-m0plus/blob/main/source/picolibrary/arm/cortex/m0plus/peripheral/nvic.cc)
 header/source file pair.
 
+### SCB
+The `::picolibrary::Arm::Cortex::M0PLUS::Peripheral::SCB` class defines the layout of the
+Arm Cortex-M0+ SCB peripheral and information about its registers.
+The `::picolibrary::Arm::Cortex::M0PLUS::Peripheral::SCB` class is defined in the
+[`include/picolibrary/arm/cortex/m0plus/peripheral/scb.h`](https://github.com/apcountryman/picolibrary-arm-cortex-m0plus/blob/main/include/picolibrary/arm/cortex/m0plus/peripheral/scb.h)/[`source/picolibrary/arm/cortex/m0plus/peripheral/scb.cc`](https://github.com/apcountryman/picolibrary-arm-cortex-m0plus/blob/main/source/picolibrary/arm/cortex/m0plus/peripheral/scb.cc)
+header/source file pair.
+
 ### SYSTICK
 The `::picolibrary::Arm::Cortex::M0PLUS::Peripheral::SYSTICK` class defines the layout of
 the Arm Cortex-M0+ SYSTICK peripheral and information about its registers.
@@ -50,5 +58,6 @@ The following peripheral instances are defined (listed alphabetically):
 - `::picolibrary::Arm::Cortex::M0PLUS::Peripheral::MPU0` (only available if
   `PICOLIBRARY_ARM_CORTEX_M0PLUS_IMPLEMENTATION_HAS_MPU` is true)
 - `::picolibrary::Arm::Cortex::M0PLUS::Peripheral::NVIC0`
+- `::picolibrary::Arm::Cortex::M0PLUS::Peripheral::SCB0`
 - `::picolibrary::Arm::Cortex::M0PLUS::Peripheral::SYSTICK0` (only available if
   `PICOLIBRARY_ARM_CORTEX_M0PLUS_IMPLEMENTATION_HAS_SYSTICK` is true)
