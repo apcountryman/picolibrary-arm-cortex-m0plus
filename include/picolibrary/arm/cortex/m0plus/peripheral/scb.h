@@ -105,7 +105,7 @@ class SCB {
      *   PICOLIBRARY_ARM_CORTEX_M0PLUS_IMPLEMENTATION_HAS_SYSTICK is true)
      * - SYSTICK Set-Pending Bit (PENDSTSET) (only if
      *   PICOLIBRARY_ARM_CORTEX_M0PLUS_IMPLEMENTATION_HAS_SYSTICK is true)
-     * - PENSV Clear-Pending Bit (PENDSVCLR)
+     * - PENDSV Clear-Pending Bit (PENDSVCLR)
      * - PENDSV Set-Pending Bit (PENDSVSET)
      * - NMI Set-Pending Bit (NMIPENDSET)
      */
