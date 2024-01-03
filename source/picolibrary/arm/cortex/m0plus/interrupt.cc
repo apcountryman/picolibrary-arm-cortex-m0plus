@@ -28,4 +28,6 @@ static_assert(
     IMPLEMENTATION_INTERRUPTS <= 32,
     "invalid PICOLIBRARY_ARM_CORTEX_M0PLUS_IMPLEMENTATION_INTERRUPTS configuration" );
 
+static_assert( sizeof( Handler ) == 4 );
+
 } // namespace picolibrary::Arm::Cortex::M0PLUS::Interrupt

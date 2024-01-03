@@ -37,6 +37,11 @@ namespace picolibrary::Arm::Cortex::M0PLUS::Interrupt {
  */
 constexpr auto IMPLEMENTATION_INTERRUPTS = std::uint_fast8_t{ PICOLIBRARY_ARM_CORTEX_M0PLUS_IMPLEMENTATION_INTERRUPTS };
 
+/**
+ * \brief Interrupt handler.
+ */
+using Handler = void ( * )();
+
 } // namespace picolibrary::Arm::Cortex::M0PLUS::Interrupt
 
 #endif // PICOLIBRARY_ARM_CORTEX_M0PLUS_INTERRUPT_H
