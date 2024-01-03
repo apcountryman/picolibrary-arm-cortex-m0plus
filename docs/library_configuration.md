@@ -20,6 +20,8 @@ General library configuration consists of the following macros:
   peripheral VTOR register configuration
 - `PICOLIBRARY_ARM_CORTEX_M0PLUS_IMPLEMENTATION_HAS_SYSTICK`: implementation SYSTICK
   peripheral configuration
+- `PICOLIBRARY_ARM_CORTEX_M0PLUS_IMPLEMENTATION_INTERRUPTS`: implementation interrupt
+  count
 
 These macros should be accessed via the
 [`include/picolibrary/arm/cortex/m0plus/configuration.h`](https://github.com/apcountryman/picolibrary-arm-cortex-m0plus/blob/main/include/picolibrary/arm/cortex/m0plus/configuration.h)
@@ -36,6 +38,8 @@ for the Microchip SAM D21/DA1 family of Arm Cortex-M0+ microcontrollers:
 #define PICOLIBRARY_ARM_CORTEX_M0PLUS_IMPLEMENTATION_HAS_SCB_VTOR 1
 
 #define PICOLIBRARY_ARM_CORTEX_M0PLUS_IMPLEMENTATION_HAS_SYSTICK 1
+
+#define PICOLIBRARY_ARM_CORTEX_M0PLUS_IMPLEMENTATION_INTERRUPTS 28
 
 #endif // PICOLIBRARY_ARM_CORTEX_M0PLUS_IMPLEMENTATION_CONFIGURATION_H
 ```
