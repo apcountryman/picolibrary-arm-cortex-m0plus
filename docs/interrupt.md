@@ -5,8 +5,13 @@ header/source file pair.
 
 ## Table of Contents
 - [Implementation Interrupt Count](#implementation-interrupt-count)
+- [Handler](#handler)
 
 ## Implementation Interrupt Count
 The `::picolibrary::Arm::Cortex::M0PLUS::Interrupt::IMPLEMENTATION_INTERRUPTS` constant
 stores the number of interrupts defined by the Arm Cortex-M0+ microcontroller
 implementation.
+
+## Handler
+The `::picolibrary::Arm::Cortex::M0PLUS::Interrupt::Handler` type alias defines the
+signature of interrupt handlers.
