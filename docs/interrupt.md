@@ -8,5 +8,5 @@ header/source file pair.
 
 ## Implementation Interrupt Count
 The `::picolibrary::Arm::Cortex::M0PLUS::Interrupt::IMPLEMENTATION_INTERRUPTS` constant
-stores the number of interrupts defined by a specific Arm Cortex-M0+ microcontroller
+stores the number of interrupts defined by the Arm Cortex-M0+ microcontroller
 implementation.
