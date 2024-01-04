@@ -42,10 +42,12 @@ constexpr auto IMPLEMENTATION_INTERRUPTS = std::uint_fast8_t{ PICOLIBRARY_ARM_CO
  */
 using Handler = void ( * )();
 
+#define PICOLIBRARY_ARM_CORTEX_M0PLUS_INTERRUPT_VECTOR_TABLE_ALIGNMENT alignas( 256 )
+
 /**
  * \brief Interrupt vector table.
  */
-struct alignas( 256 ) Vector_Table {
+struct PICOLIBRARY_ARM_CORTEX_M0PLUS_INTERRUPT_VECTOR_TABLE_ALIGNMENT Vector_Table {
     /**
      * \brief Initial stack pointer value.
      */
