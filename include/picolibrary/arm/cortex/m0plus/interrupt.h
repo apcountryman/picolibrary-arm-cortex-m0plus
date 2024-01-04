@@ -23,19 +23,12 @@
 #ifndef PICOLIBRARY_ARM_CORTEX_M0PLUS_INTERRUPT_H
 #define PICOLIBRARY_ARM_CORTEX_M0PLUS_INTERRUPT_H
 
-#include <cstdint>
-
 #include "picolibrary/arm/cortex/m0plus/configuration.h"
 
 /**
  * \brief Arm Cortex-M0+ interrupt facilities.
  */
 namespace picolibrary::Arm::Cortex::M0PLUS::Interrupt {
-
-/**
- * \brief Implementation interrupt count.
- */
-constexpr auto IMPLEMENTATION_INTERRUPTS = std::uint_fast8_t{ PICOLIBRARY_ARM_CORTEX_M0PLUS_IMPLEMENTATION_INTERRUPTS };
 
 /**
  * \brief Interrupt handler.
