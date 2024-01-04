@@ -21,8 +21,6 @@ General library configuration consists of the following macros:
   peripheral VTOR register configuration
 - `PICOLIBRARY_ARM_CORTEX_M0PLUS_IMPLEMENTATION_HAS_SYSTICK`: implementation SYSTICK
   peripheral configuration
-- `PICOLIBRARY_ARM_CORTEX_M0PLUS_IMPLEMENTATION_INTERRUPTS`: implementation interrupt
-  count
 
 These macros should be accessed via the
 [`include/picolibrary/arm/cortex/m0plus/configuration.h`](https://github.com/apcountryman/picolibrary-arm-cortex-m0plus/blob/main/include/picolibrary/arm/cortex/m0plus/configuration.h)
