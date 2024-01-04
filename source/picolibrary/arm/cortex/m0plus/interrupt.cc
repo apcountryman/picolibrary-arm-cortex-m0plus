@@ -30,4 +30,6 @@ static_assert(
 
 static_assert( sizeof( Handler ) == 4 );
 
+static_assert( sizeof( void * ) == 4 );
+
 } // namespace picolibrary::Arm::Cortex::M0PLUS::Interrupt

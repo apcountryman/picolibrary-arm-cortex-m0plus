@@ -6,6 +6,7 @@ header/source file pair.
 ## Table of Contents
 - [Implementation Interrupt Count](#implementation-interrupt-count)
 - [Handler](#handler)
+- [Vector Table](#vector-table)
 
 ## Implementation Interrupt Count
 The `::picolibrary::Arm::Cortex::M0PLUS::Interrupt::IMPLEMENTATION_INTERRUPTS` constant
@@ -15,3 +16,8 @@ implementation.
 ## Handler
 The `::picolibrary::Arm::Cortex::M0PLUS::Interrupt::Handler` type alias defines the
 signature of interrupt handlers.
+
+## Vector Table
+The `::picolibrary::Arm::Cortex::M0PLUS::Interrupt::Vector_Table` structure defines the
+layout of the interrupt vector table.
+picolibrary-arm-cortex-m0plus does not instantiate a default interrupt vector table.

@@ -42,6 +42,100 @@ constexpr auto IMPLEMENTATION_INTERRUPTS = std::uint_fast8_t{ PICOLIBRARY_ARM_CO
  */
 using Handler = void ( * )();
 
+/**
+ * \brief Interrupt vector table.
+ */
+struct alignas( 256 ) Vector_Table {
+    /**
+     * \brief Initial stack pointer value.
+     */
+    void * stack;
+
+    /**
+     * \brief Reset handler.
+     */
+    Handler reset_handler;
+
+    /**
+     * \brief Non-Maskable Interrupt (NMI) handler.
+     */
+    Handler nonmaskable_interrupt_handler;
+
+    /**
+     * \brief Hard fault handler.
+     */
+    Handler hard_fault_handler;
+
+    /**
+     * \brief Reserved (IRQ -12).
+     */
+    Handler reserved_n12;
+
+    /**
+     * \brief Reserved (IRQ -11).
+     */
+    Handler reserved_n11;
+
+    /**
+     * \brief Reserved (IRQ -10).
+     */
+    Handler reserved_n10;
+
+    /**
+     * \brief Reserved (IRQ -9).
+     */
+    Handler reserved_n9;
+
+    /**
+     * \brief Reserved (IRQ -8).
+     */
+    Handler reserved_n8;
+
+    /**
+     * \brief Reserved (IRQ -7).
+     */
+    Handler reserved_n7;
+
+    /**
+     * \brief Reserved (IRQ -6).
+     */
+    Handler reserved_n6;
+
+    /**
+     * \brief Supervisor Call (SVCALL) handler.
+     */
+    Handler supervisor_call_handler;
+
+    /**
+     * \brief Reserved (IRQ -4).
+     */
+    Handler reserved_n4;
+
+    /**
+     * \brief Reserved (IRQ -3).
+     */
+    Handler reserved_n3;
+
+    /**
+     * \brief Context Switch (PENDSV) handler.
+     */
+    Handler context_switch_handler;
+
+#if PICOLIBRARY_ARM_CORTEX_M0PLUS_IMPLEMENTATION_HAS_SYSTICK
+    /**
+     * \brief System Tick (SYSTICK) handler.
+     */
+    Handler system_tick_handler;
+#else  // PICOLIBRARY_ARM_CORTEX_M0PLUS_IMPLEMENTATION_HAS_SYSTICK
+    /**
+     * \brief Reserved (IRQ -1).
+     */
+    Handler reserved_n1;
+#endif // PICOLIBRARY_ARM_CORTEX_M0PLUS_IMPLEMENTATION_HAS_SYSTICK
+
+#include "picolibrary/arm/cortex/m0plus/implementation/interrupt/vectors.h"
+};
+
 } // namespace picolibrary::Arm::Cortex::M0PLUS::Interrupt
 
 #endif // PICOLIBRARY_ARM_CORTEX_M0PLUS_INTERRUPT_H
