@@ -25,6 +25,7 @@ set(
     PICOLIBRARY_ARM_CORTEX_M0PLUS_SOURCE_FILES
     "picolibrary/arm/cortex/m0plus.cc"
     "picolibrary/arm/cortex/m0plus/configuration.cc"
+    "picolibrary/arm/cortex/m0plus/delayer.cc"
     "picolibrary/arm/cortex/m0plus/interrupt.cc"
     "picolibrary/arm/cortex/m0plus/peripheral.cc"
     "picolibrary/arm/cortex/m0plus/peripheral/mpu.cc"
