@@ -9,3 +9,4 @@
 1. [Library Configuration](library_configuration.md)
 1. [Peripheral Facilities](peripheral.md)
 1. [Interrupt Facilities](interrupt.md)
+1. [Blocking Delay Facilities](delayer.md)
