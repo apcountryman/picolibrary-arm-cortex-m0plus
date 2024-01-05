@@ -56,13 +56,16 @@ class Delayer {
      * \param[in] clock_source The SYSTICK peripheral clock source to use.
      * \param[in] reload_value The SYSTICK peripheral counter reload value to use to
      *            create blocking delays of the desired duration.
+     * \param[in] ticks The number of SYSTICK peripheral counter reloads required to
+     *            create blocking delays of the desired duration.
      *
-     * \attention The delayer will use processor clock if the external reference clock is
-     *            requested but is not available.
+     * \attention The delayer will use the processor clock if the external reference clock
+     *            is requested but is not available.
      */
-    constexpr Delayer( Peripheral::SYSTICK & systick, Clock_Source clock_source, std::uint32_t reload_value ) noexcept
+    constexpr Delayer( Peripheral::SYSTICK & systick, Clock_Source clock_source, std::uint32_t reload_value, std::uint32_t ticks ) noexcept
         :
-        m_systick{ &systick }
+        m_systick{ &systick },
+        m_ticks{ ticks }
     {
         m_systick->rvr = reload_value;
         m_systick->cvr = 0;
@@ -74,7 +77,9 @@ class Delayer {
      *
      * \param[in] source The source of the move.
      */
-    constexpr Delayer( Delayer && source ) noexcept : m_systick{ source.m_systick }
+    constexpr Delayer( Delayer && source ) noexcept :
+        m_systick{ source.m_systick },
+        m_ticks{ source.m_ticks }
     {
         source.m_systick = nullptr;
     }
@@ -102,6 +107,7 @@ class Delayer {
             disable();
 
             m_systick = expression.m_systick;
+            m_ticks   = expression.m_ticks;
 
             expression.m_systick = nullptr;
         } // if
@@ -118,7 +124,9 @@ class Delayer {
     {
         m_systick->cvr = 0;
 
-        while ( not( m_systick->csr & Peripheral::SYSTICK::CSR::Mask::COUNTFLAG ) ) {} // while
+        for ( auto ticks = std::uint32_t{}; ticks < m_ticks; ++ticks ) {
+            while ( not( m_systick->csr & Peripheral::SYSTICK::CSR::Mask::COUNTFLAG ) ) {} // while
+        } // for
     }
 
   private:
@@ -126,6 +134,12 @@ class Delayer {
      * \brief The SYSTICK peripheral instance used to create blocking delays.
      */
     Peripheral::SYSTICK * m_systick{};
+
+    /**
+     * \brief The number of SYSTICK peripheral counter reloads required to create blocking
+     *        delays of the desired duration.
+     */
+    std::uint32_t m_ticks{};
 
     /**
      * \brief Disable the counter.
