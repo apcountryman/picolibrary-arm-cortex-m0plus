@@ -52,9 +52,9 @@ struct PICOLIBRARY_ARM_CORTEX_M0PLUS_INTERRUPT_VECTOR_TABLE_ALIGNMENT Vector_Tab
     Handler reset_handler;
 
     /**
-     * \brief Non-Maskable Interrupt (NMI) handler.
+     * \brief NMI handler.
      */
-    Handler nonmaskable_interrupt_handler;
+    Handler nmi_handler;
 
     /**
      * \brief Hard fault handler.
@@ -97,9 +97,9 @@ struct PICOLIBRARY_ARM_CORTEX_M0PLUS_INTERRUPT_VECTOR_TABLE_ALIGNMENT Vector_Tab
     Handler reserved_n6;
 
     /**
-     * \brief Supervisor Call (SVCALL) handler.
+     * \brief SVCALL handler.
      */
-    Handler supervisor_call_handler;
+    Handler svcall_handler;
 
     /**
      * \brief Reserved (IRQ -4).
@@ -112,15 +112,15 @@ struct PICOLIBRARY_ARM_CORTEX_M0PLUS_INTERRUPT_VECTOR_TABLE_ALIGNMENT Vector_Tab
     Handler reserved_n3;
 
     /**
-     * \brief Context Switch (PENDSV) handler.
+     * \brief PENDSV handler.
      */
-    Handler context_switch_handler;
+    Handler pendsv_handler;
 
 #if PICOLIBRARY_ARM_CORTEX_M0PLUS_IMPLEMENTATION_HAS_SYSTICK
     /**
-     * \brief System Tick (SYSTICK) handler.
+     * \brief SYSTICK0 handler.
      */
-    Handler system_tick_handler;
+    Handler systick0_handler;
 #else  // PICOLIBRARY_ARM_CORTEX_M0PLUS_IMPLEMENTATION_HAS_SYSTICK
     /**
      * \brief Reserved (IRQ -1).
