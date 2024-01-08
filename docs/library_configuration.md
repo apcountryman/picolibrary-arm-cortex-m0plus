@@ -50,23 +50,23 @@ This header file is used to inject implementation interrupt handler entries into
 `picolibrary/arm/cortex/m0plus/implementation/interrupt/vectors.h` would be defined as
 follows for the Microchip SAM D21/DA1 family of Arm Cortex-M0+ microcontrollers:
 ```c++
-Handler pm_handler;
+Handler pm0_handler;
 
-Handler sysctrl_handler;
+Handler sysctrl0_handler;
 
-Handler wdt_handler;
+Handler wdt0_handler;
 
-Handler rtc_handler;
+Handler rtc0_handler;
 
-Handler eic_handler;
+Handler eic0_handler;
 
-Handler nvmctrl_handler;
+Handler nvmctrl0_handler;
 
-Handler dmac_handler;
+Handler dmac0_handler;
 
-Handler usb_handler;
+Handler usb0_handler;
 
-Handler evsys_handler;
+Handler evsys0_handler;
 
 Handler sercom0_handler;
 
@@ -96,15 +96,15 @@ Handler tc6_handler;
 
 Handler tc7_handler;
 
-Handler adc_handler;
+Handler adc0_handler;
 
-Handler ac_handler;
+Handler ac0_handler;
 
-Handler dac_handler;
+Handler dac0_handler;
 
-Handler ptc_handler;
+Handler ptc0_handler;
 
-Handler i2s_handler;
+Handler i2s0_handler;
 
 Handler ac1_handler;
 
