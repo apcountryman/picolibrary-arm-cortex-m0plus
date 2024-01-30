@@ -48,12 +48,12 @@ target_include_directories(
     PUBLIC "${PROJECT_SOURCE_DIR}/include"
 )
 target_link_libraries(
-    picolibrary-arm-cortex-m0plus
+    picolibrary-arm-cortex-m0plus STATIC
     ${PICOLIBRARY_ARM_CORTEX_M0PLUS_LINK_LIBRARIES}
 )
 
 add_library(
-    picolibrary-arm-cortex-m0plus-version
+    picolibrary-arm-cortex-m0plus-version STATIC
     "${CMAKE_CURRENT_BINARY_DIR}/picolibrary/arm/cortex/m0plus/version.cc"
 )
 target_include_directories(
