@@ -501,8 +501,8 @@ class MTB {
          * \brief Field sizes.
          */
         struct Size {
-            static constexpr auto DES_2     = std::uint_fast8_t{ 4 }; ///< DES_2.
-            static constexpr auto SIZE      = std::uint_fast8_t{ 4 }; ///< SIZE.
+            static constexpr auto DES_2     = std::uint_fast8_t{ 4 };  ///< DES_2.
+            static constexpr auto SIZE      = std::uint_fast8_t{ 4 };  ///< SIZE.
             static constexpr auto RESERVED8 = std::uint_fast8_t{ 24 }; ///< RESERVED8.
         };
 
