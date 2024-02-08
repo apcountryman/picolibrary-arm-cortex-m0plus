@@ -3,6 +3,7 @@
 ## Table of Contents
 1. [Peripherals](#peripherals)
     1. [MPU](#mpu)
+    1. [MTB](#mtb)
     1. [NVIC](#nvic)
     1. [SCB](#scb)
     1. [SYSTICK](#systick)
@@ -34,6 +35,13 @@ The `::picolibrary::Arm::Cortex::M0PLUS::Peripheral::MPU` class defines the layo
 Arm Cortex-M0+ MPU peripheral and information about its registers.
 The `::picolibrary::Arm::Cortex::M0PLUS::Peripheral::MPU` class is defined in the
 [`include/picolibrary/arm/cortex/m0plus/peripheral/mpu.h`](https://github.com/apcountryman/picolibrary-arm-cortex-m0plus/blob/main/include/picolibrary/arm/cortex/m0plus/peripheral/mpu.h)/[`source/picolibrary/arm/cortex/m0plus/peripheral/mpu.cc`](https://github.com/apcountryman/picolibrary-arm-cortex-m0plus/blob/main/source/picolibrary/arm/cortex/m0plus/peripheral/mpu.cc)
+header/source file pair.
+
+### MTB
+The `::picolibrary::Arm::Cortex::M0PLUS::Peripheral::MTB` class defines the layout of the
+Arm Cortex-M0+ MTB peripheral and information about its registers.
+The `::picolibrary::Arm::Cortex::M0PLUS::Peripheral::MTB` class is defined in the
+[`include/picolibrary/arm/cortex/m0plus/peripheral/mtb.h`](https://github.com/apcountryman/picolibrary-arm-cortex-m0plus/blob/main/include/picolibrary/arm/cortex/m0plus/peripheral/mtb.h)/[`source/picolibrary/arm/cortex/m0plus/peripheral/mtb.cc`](https://github.com/apcountryman/picolibrary-arm-cortex-m0plus/blob/main/source/picolibrary/arm/cortex/m0plus/peripheral/mtb.cc)
 header/source file pair.
 
 ### NVIC
