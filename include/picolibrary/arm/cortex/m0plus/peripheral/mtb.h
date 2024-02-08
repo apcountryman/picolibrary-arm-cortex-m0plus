@@ -501,9 +501,9 @@ class MTB {
          * \brief Field sizes.
          */
         struct Size {
-            static constexpr auto DES_2     = std::uint_fast8_t{ 1 }; ///< DES_2.
-            static constexpr auto SIZE      = std::uint_fast8_t{ 1 }; ///< SIZE.
-            static constexpr auto RESERVED8 = std::uint_fast8_t{ 1 }; ///< RESERVED8.
+            static constexpr auto DES_2     = std::uint_fast8_t{ 4 }; ///< DES_2.
+            static constexpr auto SIZE      = std::uint_fast8_t{ 4 }; ///< SIZE.
+            static constexpr auto RESERVED8 = std::uint_fast8_t{ 24 }; ///< RESERVED8.
         };
 
         /**
@@ -707,7 +707,7 @@ class MTB {
         struct Size {
             static constexpr auto CMOD      = std::uint_fast8_t{ 4 };  ///< CMOD.
             static constexpr auto REVAND    = std::uint_fast8_t{ 4 };  ///< REVAND.
-            static constexpr auto RESERVED0 = std::uint_fast8_t{ 24 }; ///< RESERVED0.
+            static constexpr auto RESERVED8 = std::uint_fast8_t{ 24 }; ///< RESERVED8.
         };
 
         /**
@@ -716,7 +716,7 @@ class MTB {
         struct Bit {
             static constexpr auto CMOD = std::uint_fast8_t{}; ///< CMOD.
             static constexpr auto REVAND = std::uint_fast8_t{ CMOD + Size::CMOD }; ///< REVAND.
-            static constexpr auto RESERVED0 = std::uint_fast8_t{ REVAND + Size::REVAND }; ///< RESERVED0.
+            static constexpr auto RESERVED8 = std::uint_fast8_t{ REVAND + Size::REVAND }; ///< RESERVED8.
         };
 
         /**
@@ -725,7 +725,7 @@ class MTB {
         struct Mask {
             static constexpr auto CMOD = mask<std::uint32_t>( Size::CMOD, Bit::CMOD ); ///< CMOD.
             static constexpr auto REVAND = mask<std::uint32_t>( Size::REVAND, Bit::REVAND ); ///< REVAND.
-            static constexpr auto RESERVED0 = mask<std::uint32_t>( Size::RESERVED0, Bit::RESERVED0 ); ///< RESERVED0.
+            static constexpr auto RESERVED8 = mask<std::uint32_t>( Size::RESERVED8, Bit::RESERVED8 ); ///< RESERVED8.
         };
 
         PIDR3() = delete;
@@ -958,7 +958,7 @@ class MTB {
     /**
      * \brief Reserved registers (offset 0x010-0xEFC).
      */
-    Reserved_Register<std::uint32_t> reserved_0x010_0xEFC[ ( ( 0xEFC - 0x010 ) + 4 ) / 4 ];
+    Reserved_Register<std::uint32_t> const reserved_0x010_0xEFC[ ( ( 0xEFC - 0x010 ) + 4 ) / 4 ];
 
     /**
      * \brief ITCTRL.
@@ -968,7 +968,7 @@ class MTB {
     /**
      * \brief Reserved registers (offset 0xF04-0xF9C).
      */
-    Reserved_Register<std::uint32_t> reserved_0xF04_0xF9C[ ( ( 0xF9C - 0xF04 ) + 4 ) / 4 ];
+    Reserved_Register<std::uint32_t> const reserved_0xF04_0xF9C[ ( ( 0xF9C - 0xF04 ) + 4 ) / 4 ];
 
     /**
      * \brief Claim Tag Set (CLAIMSET) register.
